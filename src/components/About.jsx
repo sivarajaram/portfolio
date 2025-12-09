@@ -13,14 +13,14 @@ function About() {
 
           <ScrambledText className="about-paragraph">
             I’m Sivanandan-Full Stack Developer focused on building scalable and secure
-            backend systems using Java ,Spring Boot, while crafting responsive,
-            accessible,& high performance user interfaces with React. I enjoy designing
-            clean APIs, optimizing application performance, and transforming
-            complex real world problems into reliable software solutions. My approach blends
-            strong system design principles, efficient coding practices, and a user first
-            mindset. I am driven by continuous learning and enjoy working on products that
-            deliver real value, long term stability, and smooth user experiences across
-            platforms.
+backend systems using  Java ,Spring Boot, while crafting responsive,
+accessible,& high performance UI with     React. I enjoy designing
+clean APIs, optimizing application performance, & transformingcomplex real world problems into reliable software solutions. My approach blend
+strong system design principles, efficient coding practices, and a user first
+mindset.I driven by continuous learning and enjoy working on products that
+deliver real value,long stability, and smooth user experiences across
+platforms.
+
           </ScrambledText>
 
           <a className="btn-primary" href="#projects">

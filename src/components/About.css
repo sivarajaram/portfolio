@@ -147,7 +147,7 @@
 .about-paragraph:hover .scramble-char:hover {
   color: #00eaff !important;
   text-shadow:
-    0 0 6px rgba(0, 234, 255, 0.9),
+    0 0 6px rgba(255, 0, 195, 0.718),
     0 0 14px rgba(0, 234, 255, 0.6);
 }
 .about-section,
