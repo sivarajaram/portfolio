@@ -46,7 +46,7 @@ function Contact() {
       const email = e.target.email.value;
       const message = e.target.message.value;
 
-      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=m.sanjeevmuniraj@gmail.com&su=Portfolio Contact from ${encodeURIComponent(
+      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=rajaramsiva19@gmail.com&su=Portfolio Contact from ${encodeURIComponent(
         name
       )}&body=${encodeURIComponent(
         `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
