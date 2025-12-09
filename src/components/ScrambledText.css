@@ -1,0 +1,43 @@
+/* Force normal spacing/wrapping after scramble */
+.scrambled-text-root.about-paragraph,
+.about-paragraph {
+  /* make sure text flows normally */
+  white-space: normal !important;
+  word-break: break-word;           /* break long words if needed */
+  overflow-wrap: anywhere;          /* better breaking for long words */
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+/* If the scramble library wraps letters/words in spans, make spans flow inline */
+.scrambled-text-root.about-paragraph span,
+.about-paragraph span {
+  position: static !important;
+  display: inline !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  letter-spacing: normal !important;
+}
+
+/* Ensure right sidebar (sticky) sits above left content to avoid being overlapped */
+.about-right {
+  position: relative; /* keep sticky behavior from earlier media query */
+  z-index: 5;
+}
+
+/* make sure left column content doesn't unexpectedly layer above sidebar */
+.about-left {
+  z-index: 1;
+  position: relative;
+}
+
+/* keep readable line length but avoid overflow causing overlap */
+.scrambled-text-root.about-paragraph p,
+.about-paragraph p {
+  max-width: 90ch;      /* keep your original */
+  overflow-wrap: anywhere;
+}

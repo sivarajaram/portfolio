@@ -1,0 +1,589 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global reset-ish */
+html,
+body {
+  font-family: "Inter", sans-serif;
+}
+
+
+
+
+/* ----- HEADER ----- */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+}
+
+.logo .dot {
+  color: #4f46e5; /* nice indigo dot */
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #111827;
+}
+
+/* Underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #111827;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* CTA button */
+.nav-cta {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #111827;
+  color: #111827;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-cta:hover {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+/* So content is not hidden under fixed header */
+main {
+  padding-top: 64px; /* adjust if header height changes */
+}
+
+/* ===== HERO SECTION (Siva hero) ===== */
+
+/* ===== HERO SECTION (Siva) ===== */
+
+.hero-section {
+  position: relative;
+  background-color: #ffffff;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Big outline name in background */
+.hero-bg-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+  font-size: clamp(4rem, 16vw, 9rem);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.30);
+  text-stroke: 1px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Main content layout */
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: calc(100vh - 64px);
+}
+
+/* LEFT SIDE */
+.hero-left {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-hello {
+  font-size: 0.95rem;
+  color: #181c23;
+  margin-bottom: 0.3rem;
+}
+
+.hero-name {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.4rem;
+}
+
+.hero-name span {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-style: italic;
+}
+
+.hero-role {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.75rem;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: #4b5563;
+  max-width: 420px;
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero-btn-primary,
+.hero-btn-secondary {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Contact button */
+.hero-btn-primary {
+  background-color: #ec4899;
+  color: white;
+  border: none;
+}
+
+.hero-btn-primary:hover {
+  background-color: #db2777;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(219, 39, 119, 0.35);
+}
+
+/* Download resume button */
+.hero-btn-secondary {
+  background-color: transparent;
+  color: #111827;
+  border: 1px solid #111827;
+}
+
+.hero-btn-secondary:hover {
+  background-color: #111827;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ===== RIGHT SIDE – CIRCLE + POP-OUT PHOTO + BADGES ===== */
+
+.hero-right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo {
+  width: 530px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== FLOATING BADGES (moved right) ===== */
+.hero-tech {
+  position: absolute;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92);
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  transition: all 0.22s ease;
+  animation: hero-float 4.5s ease-in-out infinite;
+  z-index: 5;
+}
+
+/* hover colors */
+.hero-tech-1:hover { background:#61dafb; color:#0f172a; }
+.hero-tech-2:hover { background:#6db33f; color:#fff; }
+.hero-tech-3:hover { background:#f89820; color:#fff; }
+.hero-tech-4:hover { background:#a855f7; color:#fff; }
+
+/* animation */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* moved badges to the RIGHT side */
+.hero-tech-1 { top: 22%; right: -8%; }
+.hero-tech-2 { top: 40%; right: -10%; }
+.hero-tech-3 { top: 58%; right: -6%; }
+.hero-tech-4 { top: 76%; right: -9%; }
+
+/* hide badges on mobile */
+/* ===== MOBILE HERO (improved responsive behavior) ===== */
+@media (max-width: 900px) {
+  /* Stack vertically and center */
+  .hero-inner {
+    flex-direction: column;       /* stack image then text (or reverse if you prefer) */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 3.5rem 1rem;
+    min-height: auto;
+  }
+
+  /* hide the decorative oversized name */
+  .hero-bg-text {
+    display: none;
+  }
+
+  /* Text block becomes full width and centered */
+  .hero-left {
+    flex: 0 0 100%;
+    max-width: 760px;
+    width: 100%;
+    text-align: center;
+    padding: 0 0.5rem;
+    order: 2; /* put text after image */
+  }
+
+  .hero-hello { margin-top: 0; }
+  .hero-name { font-size: 2rem; line-height: 1.05; }
+  .hero-role { font-size: 1.05rem; }
+  .hero-desc { margin: 0 auto 1rem; max-width: 100%; font-size: 0.95rem; }
+
+  /* Buttons centered and responsive */
+  .hero-buttons {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .hero-btn-primary, .hero-btn-secondary {
+    padding: 0.55rem 1.2rem;
+  }
+
+  /* Image area becomes a simple block (no absolute) and is shown above text */
+  .hero-right {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1; /* image before text */
+    margin-bottom: 6px;
+  }
+
+  /* Reset image positioning so it scales naturally and doesn't overlap text */
+  .hero-photo,
+  .hero-photo-body,
+  .hero-photo-head {
+    position: relative !important;
+    bottom: auto !important;
+    left: 10% !important;
+    transform: translateX(-50%) !important;
+    width: min(80vw, 320px) !important; /* responsive width */
+    height: auto !important;
+    object-fit: contain !important;
+    clip-path: none !important; /* if you used clip-path for overlays, remove on mobile */
+  }
+
+  /* If you used a circle wrapper, make it centered and smaller */
+  .hero-photo-stack, .hero-photo-wrapper, .hero-photo-circle {
+    width: 260px !important;
+    height: 260px !important;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 6px;
+    border-width: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  /* Hide floating badges on mobile for clarity */
+  .hero-tech { display: none !important; }
+
+  /* small typography tweaks */
+  .hero-name span { font-size: inherit; }
+}
+
+/* extra small phones */
+@media (max-width: 420px) {
+  .hero-photo, .hero-photo-body, .hero-photo-head { width: min(86vw, 220px) !important; }
+  .hero-photo-stack, .hero-photo-wrapper, .hero-photo-circle { width: 200px !important; height: 200px !important; }
+  .hero-name { font-size: 1.8rem; }
+  .hero-desc { font-size: 0.9rem; }
+  .hero-buttons { gap: .5rem; flex-direction: column; align-items: center; }
+  .hero-btn-primary, .hero-btn-secondary { width: 88%; text-align: center; }
+}
+/* ---------- MOBILE IMPROVEMENTS (only) ---------- */
+@media (max-width: 900px) {
+
+  /* NAV: allow wrapping / horizontal scroll so items don't hide (no hamburger) */
+  .nav {
+    padding: 0.5rem 0.75rem;
+    flex-wrap: wrap;              /* allow links + logo to wrap */
+  }
+
+  .nav-links {
+    gap: 0.9rem;
+    flex-wrap: nowrap;            /* keep links in a row */
+    overflow-x: auto;             /* allow horizontal scroll if needed */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    margin: 0.4rem 0 0 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* reduce nav link sizes on small screens so more fit */
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+
+  /* hide CTA on narrow phones to free space (optional) */
+  .nav-cta { display: none; }
+
+  /* HERO: stack and center */
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    gap: 1.25rem;
+    min-height: auto;
+  }
+
+  /* hide large background word */
+  .hero-bg-text { display: none; }
+
+  /* left text block full width and centered */
+  .hero-left {
+    width: 100%;
+    max-width: 720px;
+    padding: 0 0.5rem;
+    order: 2; /* put text after image */
+  }
+
+  .hero-name { font-size: 2rem; line-height: 1.05; }
+  .hero-role { font-size: 1.05rem; }
+  .hero-desc { margin: 0 auto 1rem; font-size: 0.95rem; max-width: 92%; }
+
+  /* image block — make it fluid (uses vw) but keep desktop px intact */
+  .hero-right {
+    order: 1;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom: 6px;
+  }
+
+  /* fluid image: scale with viewport but stay reasonable */
+  .hero-photo {
+    width: min(78vw, 340px);  /* scales on phone, caps at 340px */
+    height: auto;
+    object-fit: contain;
+    position: relative !important;
+    transform: translateX(0) !important;
+  }
+
+  /* hide floating badges on mobile */
+  .hero-tech { display: none !important; }
+
+  /* buttons center and slightly larger tap targets */
+  .hero-buttons { justify-content: center; gap: .7rem; }
+  .hero-btn-primary, .hero-btn-secondary {
+    padding: .6rem 1.2rem;
+    font-size: .95rem;
+  }
+}
+
+/* extra small phones: minor scale down */
+@media (max-width: 420px) {
+  .hero-photo { width: min(84vw, 260px); }
+  .hero-name { font-size: 1.8rem; }
+  .hero-desc { font-size: 0.9rem; }
+  .hero-buttons { gap: .5rem; flex-direction: column; }
+  .hero-btn-primary, .hero-btn-secondary { width: 90%; }
+}
+/* ===== MOBILE FORCE: center hero image & remove right-offsets ===== */
+@media (max-width: 900px) {
+  /* ensure hero stacks and nothing is absolutely pinned to the right */
+  .hero-inner { flex-direction: column; align-items: center; gap: 1.25rem; padding: 2.5rem 1rem; }
+
+  /* remove any decorative circle or background added to hero-right */
+  .hero-right,
+  .hero-right::before,
+  .hero-right::after {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* hide pseudo elements used to draw the circle (in case they exist) */
+  .hero-right::before,
+  .hero-right::after { display: none !important; content: none !important; }
+
+  /* make image an ordinary centered block */
+  .hero-photo {
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    width: min(84vw, 340px) !important; /* responsive cap */
+    height: auto !important;
+    object-fit: contain !important;
+    clip-path: none !important;
+  }
+
+  /* If you used wrapper elements, force them to be centered and non-overflowing */
+  .hero-photo-wrapper,
+  .hero-photo-stack,
+  .hero-photo-mask,
+  .hero-photo-circle {
+    width: min(86vw, 360px) !important;
+    height: auto !important;
+    max-width: 360px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    margin: 0 auto 0.6rem !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* hide floating badges to avoid overlap */
+  .hero-tech { display: none !important; }
+
+  /* reduce left text block width and center it */
+  .hero-left {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 760px !important;
+    padding: 0 0.6rem !important;
+    text-align: center !important;
+  }
+
+  /* minor spacing for buttons */
+  .hero-buttons { justify-content: center !important; gap: .65rem !important; }
+  .hero-btn-primary, .hero-btn-secondary { padding: .6rem 1.1rem !important; }
+}
+/* src/components/ScrambledText.css */
+
+.scrambled-text-root {
+  margin: 2rem 0;
+  max-width: 900px;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+  color: #e6eef3;
+  line-height: 1.6;
+  font-size: clamp(16px, 2.6vw, 20px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+  user-select: none;
+}
+
+.scrambled-text-root p {
+  margin: 0;
+  display: inline-block;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Each char */
+.scramble-char {
+  display: inline-block;
+  will-change: transform;
+  line-height: 1.4;
+  transform-origin: center;
+}
+
+/* small screens adjust spacing */
+@media (max-width: 640px) {
+  .scrambled-text-root {
+    font-size: clamp(14px, 3.2vw, 18px);
+    margin: 1.2rem;
+  }
+}

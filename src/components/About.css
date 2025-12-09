@@ -1,0 +1,159 @@
+/* src/components/About.css */
+
+.about-section {
+  padding: 3.5rem 1.25rem;
+  background: #fff;
+  color: #000;
+
+  /* ✅ force a different font ONLY for About section */
+  font-family: "Poppins", sans-serif !important;
+}
+
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-heading {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+/* Button */
+.btn-primary {
+  display: inline-block;
+  padding: 0.65rem 1.1rem;
+  background: linear-gradient(90deg, #00e6c3, #00b2ff);
+  color: #001217;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Layout: two columns */
+.about-inner.two-column {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* About left */
+.about-left {
+  min-width: 0;
+}
+
+/* ✅ Tech Stack Card Styling */
+.tech-card {
+  margin-top: 6.5rem;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f8fbff, #ffffff);
+  border: 1px solid #e7eef7;
+  box-shadow: 0 8px 20px rgba(8, 18, 34, 0.06);
+  max-width: 700px;
+}
+
+.tech-card h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #06213a;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tech-list span {
+  background: #f0f9ff;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #054a7a;
+}
+
+/* ✅ HOVER EFFECT FOR BOTH ABOUT & TECH CARD */
+.hover-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 38px rgba(0, 178, 255, 0.25);
+}
+
+.skills-card {
+  margin-top: 3.5rem;   /* Move tech card downward */
+}
+
+/* ✅ Mobile: stack layout */
+@media (max-width: 900px) {
+  .about-inner.two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-card {
+    margin-top: 2rem;
+  }
+}
+
+/* ✅ Unified styling for BOTH scrambled and normal text */
+.about-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #111;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+
+  text-align: left;
+  max-width: 70ch;
+
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+
+/* Make sure scrambled chars inherit the same style + font */
+.about-paragraph span,
+.about-paragraph .scramble-char {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+/* ✅ Text-only hover effect for About paragraph */
+.about-paragraph:hover {
+  color: #00b2ff;
+  text-shadow: 0 0 6px rgba(0, 178, 255, 0.45);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* ✅ Individual letter glow when hovered (for ScrambledText spans) */
+.about-paragraph:hover .scramble-char {
+  text-shadow: 0 0 8px rgba(0, 178, 255, 0.5);
+  transition: text-shadow 0.2s ease;
+}
+
+.about-paragraph:hover .scramble-char:hover {
+  color: #00eaff !important;
+  text-shadow:
+    0 0 6px rgba(0, 234, 255, 0.9),
+    0 0 14px rgba(0, 234, 255, 0.6);
+}
+.about-section,
+.about-section * {
+  font-family: "Poppins", sans-serif !important;
+}
+
+
+
